@@ -7,7 +7,8 @@ package ca.durhamcollege;
 
 import java.time.LocalDate;
 
-public class WorkTicket {
+public class WorkTicket
+{
     // Private data members
     private int ticketNumber;
     private String clientID;
@@ -15,62 +16,123 @@ public class WorkTicket {
     private String issueDescription;
 
     //Constructors
+    //Default
     public WorkTicket()
     {
-        ticketNumber = 0;
-        clientID = null;
-        ticketDate = null;
-        issueDescription = null;
+        this.ticketNumber = 0;
+        this.clientID = null;
+        this.ticketDate = null;
+        this.issueDescription = null;
     }
 
-    public WorkTicket(int number, String id, LocalDate date, String description)
+    //Parameterized
+    public WorkTicket(int ticketNumber, String clientID, LocalDate ticketDate, String issueDescription)
     {
-        ticketNumber = number;
-        clientID = id;
-        ticketDate = date;
-        issueDescription = description;
+        SetWorkTicket(ticketNumber, clientID, ticketDate, issueDescription);
     }
 
-    // Accessors and Mutators
-    public int getTicketNumber() {
+    // ACCESSORS & MUTATORS
+    //Get Ticket Number
+    public int getTicketNumber()
+    {
         return ticketNumber;
     }
-
-    public void setTicketNumber(int ticketNumber) {
-        this.ticketNumber = ticketNumber;
+    //Set Ticket Number
+    public void setTicketNumber(int ticketNumber)
+    {
+        try
+        {
+            //If ticket number is less than 0, throws an exception
+            if (ticketNumber < 0)
+            {
+                throw new IllegalArgumentException();
+            }
+            //Ticket is valid
+            else
+            {
+                this.ticketNumber = ticketNumber;
+            }
+        }
+        catch (IllegalArgumentException iae)
+        {
+            System.out.print(iae + " Ticket Number is invalid.\n");
+        }
     }
 
-    public String getClientID() {
+    //Get Client ID
+    public String getClientID()
+    {
         return clientID;
     }
-
-    public void setClientID(String clientID) {
-        this.clientID = clientID;
+    //Set Client ID
+    public void setClientID(String clientID)
+    {
+        try
+        {
+            //If Client Id's length is less/equal to 1, throw an exception
+            if (clientID.length() <= 1)
+            {
+                throw new IllegalArgumentException();
+            }
+            //Client Id is valid
+            else
+            {
+                this.clientID = clientID;
+            }
+        }
+        catch(IllegalArgumentException iae)
+        {
+            System.out.print(iae + "Client Id is invalid.\n");
+        }
     }
 
-    public LocalDate getTicketDate() {
+    //Get Ticket Date
+    public LocalDate getTicketDate()
+    {
         return ticketDate;
     }
-
-    public void setTicketDate(LocalDate ticketDate) {
+    //Set Ticket Date --Validations go in here--
+    public void setTicketDate(LocalDate ticketDate)
+    {
         this.ticketDate = ticketDate;
     }
 
-    public String getIssueDescription() {
+    //Get Issue Description
+    public String getIssueDescription()
+    {
         return issueDescription;
     }
 
-    public void setIssueDescription(String issueDescription) {
-        this.issueDescription = issueDescription;
+    //Set Issue Description
+    public void setIssueDescription(String issueDescription)
+    {
+        try
+        {
+            //If Issue Description length is less/equal to 1, throw an exception
+            if (issueDescription.length() <= 1)
+            {
+                throw new IllegalArgumentException();
+            }
+            //Issue Description is valid
+            else
+            {
+                this.issueDescription = issueDescription;
+            }
+        }
+        catch (IllegalArgumentException iae)
+        {
+            System.out.print(iae + "Description is invalid");
+        }
+
     }
 
-    boolean SetWorkTicket(int ticketNumber, String clientId, LocalDate date, String issueDescription)
+    boolean SetWorkTicket(int ticketNumber, String clientId, LocalDate ticketDate, String issueDescription)
     {
         boolean validInput = true;
 
         setTicketNumber(ticketNumber);
         setClientID(clientId);
-        setTicketDate(date);
+        setTicketDate(ticketDate);
         setIssueDescription(issueDescription);
 
         if (this.ticketNumber != ticketNumber || this.clientID != clientId || this.ticketDate != ticketDate ||
@@ -81,15 +143,12 @@ public class WorkTicket {
         return validInput;
     }
 
-
     // Functions
     @Override
     public String toString() {
-        return "WorkTicket{" +
-                "ticketNumber=" + ticketNumber +
-                ", clientID='" + clientID + '\'' +
-                ", ticketDate=" + ticketDate +
-                ", issueDescription='" + issueDescription + '\'' +
-                '}';
+        return "WorkTicket #: " + ticketNumber + "\n" +
+                "ClientID:    " + clientID + "\n" +
+                "Date:        " + ticketDate + "\n" +
+                "Description  " + issueDescription + "\n";
     }
 }
