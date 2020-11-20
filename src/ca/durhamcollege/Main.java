@@ -13,22 +13,22 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner keyboard = new Scanner(System.in);
-        WorkTicket Ticket;
 
-        //Default Constructor Display
-        Ticket = new WorkTicket();
-        System.out.println("Default Constructor\n_________________\n");
+        // Default Constructor Display
+        // We can use the mutators with this if we want
+        WorkTicket ticket = new WorkTicket();
+        System.out.println("Default Constructor\n_________________");
+        System.out.println(ticket.toString());
 
-        //System.out.println("Work Ticket #:  " + Ticket.getTicketNumber());
-        //System.out.println("Client Id:      " + Ticket.getClientID());
-        //System.out.println("Date:           " + Ticket.getTicketDate());
-        //System.out.println("Description     " + Ticket.getIssueDescription());
+        // Using setWorkTicket is an option
 
-        System.out.println(Ticket.toString());
 
         // Parameterized constructor
-        System.out.println("\nParameterized Constructor\n_________________\n");
-        Ticket = new WorkTicket(3, "124", LocalDate.now(), "sdfs");
-
+        System.out.println("\nParameterized Constructor\n_________________");
+        WorkTicket ticket3 = new WorkTicket(3, "124", LocalDate.now(), "sdfs");
+        System.out.println("Work Ticket #:  " + ticket3.getTicketNumber());
+        System.out.println("Client Id:      " + ticket3.getClientID());
+        System.out.println("Date:           " + ticket3.getTicketDate());
+        System.out.println("Description     " + ticket3.getIssueDescription());
     }
 }

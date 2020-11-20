@@ -28,7 +28,7 @@ public class WorkTicket
     //Parameterized
     public WorkTicket(int ticketNumber, String clientID, LocalDate ticketDate, String issueDescription)
     {
-        SetWorkTicket(ticketNumber, clientID, ticketDate, issueDescription);
+        setWorkTicket(ticketNumber, clientID, ticketDate, issueDescription);
     }
 
     // ACCESSORS & MUTATORS
@@ -126,7 +126,7 @@ public class WorkTicket
 
     }
 
-    boolean SetWorkTicket(int ticketNumber, String clientId, LocalDate ticketDate, String issueDescription)
+    boolean setWorkTicket(int ticketNumber, String clientId, LocalDate ticketDate, String issueDescription)
     {
         boolean validInput = true;
 
