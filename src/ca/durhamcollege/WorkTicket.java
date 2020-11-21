@@ -26,9 +26,9 @@ public class WorkTicket
     }
 
     //Parameterized
-    public WorkTicket(int ticketNumber, String clientID, LocalDate ticketDate, String issueDescription)
+    public WorkTicket(int ticketNumber, String clientID, int year, int month, int day, String issueDescription)
     {
-        setWorkTicket(ticketNumber, clientID, ticketDate, issueDescription);
+        setWorkTicket(ticketNumber, clientID, year, month, day, issueDescription);
     }
 
     // ACCESSORS & MUTATORS
@@ -53,9 +53,9 @@ public class WorkTicket
                 this.ticketNumber = ticketNumber;
             }
         }
-        catch (IllegalArgumentException iae)
+        catch (IllegalArgumentException ex)
         {
-            System.out.print(iae + " Ticket Number is invalid.\n");
+            System.out.print("The work ticket number entered is invalid");
         }
     }
 
@@ -80,9 +80,9 @@ public class WorkTicket
                 this.clientID = clientID;
             }
         }
-        catch(IllegalArgumentException iae)
+        catch(IllegalArgumentException ex)
         {
-            System.out.print(iae + "Client Id is invalid.\n");
+            System.out.print("The Client ID entered is invalid");
         }
     }
 
@@ -92,9 +92,31 @@ public class WorkTicket
         return ticketDate;
     }
     //Set Ticket Date --Validations go in here--
-    public void setTicketDate(LocalDate ticketDate)
+    public void setTicketDate(int year, int month, int day)
     {
-        this.ticketDate = ticketDate;
+        final int MIN_YEAR = 2000;
+        final int MAX_YEAR = 2099;
+        final int MIN_MONTH = 1;
+        final int MAX_MONTH = 12;
+        final int MIN_DAY = 1;
+        final int MAX_DAY = 31;
+
+        try
+        {
+            if (year < MIN_YEAR || year > MAX_YEAR || month < MIN_MONTH || month > MAX_MONTH || day < MIN_DAY || day > MAX_DAY)
+            {
+                throw new IllegalArgumentException();
+            }
+            else
+            {
+                LocalDate ticketDate = LocalDate.of(year, month, day);
+                this.ticketDate = ticketDate;
+            }
+        }
+        catch (IllegalArgumentException ex)
+        {
+            System.out.println("The date entered is invalid");
+        }
     }
 
     //Get Issue Description
@@ -119,20 +141,20 @@ public class WorkTicket
                 this.issueDescription = issueDescription;
             }
         }
-        catch (IllegalArgumentException iae)
+        catch (IllegalArgumentException ex)
         {
-            System.out.print(iae + "Description is invalid");
+            System.out.print("The issue description entered is invalid");
         }
 
     }
 
-    boolean setWorkTicket(int ticketNumber, String clientId, LocalDate ticketDate, String issueDescription)
+    boolean setWorkTicket(int ticketNumber, String clientId, int year, int month, int day, String issueDescription)
     {
         boolean validInput = true;
 
         setTicketNumber(ticketNumber);
         setClientID(clientId);
-        setTicketDate(ticketDate);
+        setTicketDate(year, month, day);
         setIssueDescription(issueDescription);
 
         if (this.ticketNumber != ticketNumber || this.clientID != clientId || this.ticketDate != ticketDate ||
