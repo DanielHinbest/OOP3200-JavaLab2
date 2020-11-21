@@ -12,20 +12,31 @@ public class Main {
 
     public static void main(String[] args)
     {
+        int ticketNumber = 0;
+        String clientID = "";
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        String issueDescription = "";
+
         Scanner keyboard = new Scanner(System.in);
 
-        // Default Constructor Display
-        // We can use the mutators with this if we want
-        WorkTicket ticket1 = new WorkTicket();
-        System.out.println("Default Constructor\n_________________");
-        System.out.println(ticket1.toString());
-
-        // Parameterized constructor
-        System.out.println("\nParameterized Constructor\n_________________");
-        WorkTicket ticket2 = new WorkTicket(3, "124", LocalDate.now(), "sdfs");
-        System.out.println("Work Ticket #:  " + ticket2.getTicketNumber());
-        System.out.println("Client Id:      " + ticket2.getClientID());
-        System.out.println("Date:           " + ticket2.getTicketDate());
-        System.out.println("Description     " + ticket2.getIssueDescription());
+        //Default constructor - stores input in variables then passes it into the setWorkTicket function to set the object
+        WorkTicket ticket = new WorkTicket();
+        System.out.print("Enter the ticket number: ");
+        ticketNumber = keyboard.nextInt();
+        System.out.print("Enter the client ID: ");
+        clientID = keyboard.nextLine();
+        System.out.println("Enter the ticket date:");
+        System.out.print("\tDay: ");
+        day = keyboard.nextInt();
+        System.out.print("\tMonth: ");
+        month = keyboard.nextInt();
+        System.out.print("\tYear: ");
+        year = keyboard.nextInt();
+        System.out.print("Enter the issue description: ");
+        issueDescription = keyboard.nextLine();
+        ticket.setWorkTicket(ticketNumber, clientID, year, month, day, issueDescription);
+        ticket.toString();
     }
 }
