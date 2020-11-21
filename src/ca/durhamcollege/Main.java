@@ -4,7 +4,6 @@
  * Description: A project to create and display a work ticket using the WorkTicket class
  */
 package ca.durhamcollege;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 //driver class
