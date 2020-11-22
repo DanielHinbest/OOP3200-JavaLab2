@@ -55,7 +55,7 @@ public class WorkTicket
         }
         catch (IllegalArgumentException ex)
         {
-            System.out.print("The work ticket number entered is invalid");
+            System.out.print("\nThe work ticket number entered is invalid.");
         }
     }
 
@@ -82,7 +82,7 @@ public class WorkTicket
         }
         catch(IllegalArgumentException ex)
         {
-            System.out.print("The Client ID entered is invalid");
+            System.out.print("\nThe Client ID entered is invalid.");
         }
     }
 
@@ -115,7 +115,7 @@ public class WorkTicket
         }
         catch (IllegalArgumentException ex)
         {
-            System.out.println("The date entered is invalid");
+            System.out.println("\nThe date entered is invalid.");
         }
     }
 
@@ -143,7 +143,7 @@ public class WorkTicket
         }
         catch (IllegalArgumentException ex)
         {
-            System.out.print("The issue description entered is invalid");
+            System.out.print("\nThe issue description entered is invalid.");
         }
 
     }
@@ -171,6 +171,6 @@ public class WorkTicket
         return "WorkTicket #: " + ticketNumber + "\n" +
                 "ClientID:    " + clientID + "\n" +
                 "Date:        " + ticketDate + "\n" +
-                "Description  " + issueDescription + "\n";
+                "Description: " + issueDescription + "\n";
     }
 }
