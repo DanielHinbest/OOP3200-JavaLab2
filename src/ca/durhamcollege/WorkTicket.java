@@ -6,6 +6,7 @@
 package ca.durhamcollege;
 
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 
 public class WorkTicket
 {
@@ -16,7 +17,9 @@ public class WorkTicket
     private String issueDescription;
 
     //Constructors
-    //Default
+    /**
+     * The default constructor for WorkTicket
+     */
     public WorkTicket()
     {
         this.ticketNumber = 0;
@@ -25,18 +28,36 @@ public class WorkTicket
         this.issueDescription = null;
     }
 
+    /**
+     * The parameterized constructor for the WorkTicket
+     * @param ticketNumber
+     * @param clientID
+     * @param year
+     * @param month
+     * @param day
+     * @param issueDescription
+     */
     //Parameterized
     public WorkTicket(int ticketNumber, String clientID, int year, int month, int day, String issueDescription)
     {
         setWorkTicket(ticketNumber, clientID, year, month, day, issueDescription);
     }
 
+    /**
+     * Accessor function to return the ticket number from WorkTicket
+     * @return {int}
+     */
     // ACCESSORS & MUTATORS
     //Get Ticket Number
     public int getTicketNumber()
     {
         return ticketNumber;
     }
+
+    /**
+     * Mutator function to set the ticket number
+     * @param ticketNumber
+     */
     //Set Ticket Number
     public void setTicketNumber(int ticketNumber)
     {
@@ -55,42 +76,57 @@ public class WorkTicket
         }
         catch (IllegalArgumentException ex)
         {
-            System.out.print("\nThe work ticket number entered is invalid.");
+            System.out.print("\nThe work ticket number entered must be greater than zero");
+        }
+        catch (InputMismatchException ex)
+        {
+            System.out.print("\nThe work ticket entered must be an integer number");
         }
     }
 
+    /**
+     * Accessor function to return the client ID
+     * @return {String}
+     */
     //Get Client ID
     public String getClientID()
     {
         return clientID;
     }
+
+    /**
+     * Mutator function to set the client ID
+     * @param clientID
+     */
     //Set Client ID
     public void setClientID(String clientID)
     {
-        try
+        if (clientID.length() > 0)
         {
-            //If Client Id's length is less/equal to 1, throw an exception
-            if (clientID.length() <= 1)
-            {
-                throw new IllegalArgumentException();
-            }
-            //Client Id is valid
-            else
-            {
-                this.clientID = clientID;
-            }
+            this.clientID = clientID;
         }
-        catch(IllegalArgumentException ex)
+        else
         {
-            System.out.print("\nThe Client ID entered is invalid.");
+            System.out.println("The client ID must be at least one character long");
         }
     }
 
+    /**
+     * Accessor function to return the ticket date
+     * @return {LocalDate}
+     */
     //Get Ticket Date
     public LocalDate getTicketDate()
     {
         return ticketDate;
     }
+
+    /**
+     * Mutator function to set the ticket date
+     * @param year
+     * @param month
+     * @param day
+     */
     //Set Ticket Date --Validations go in here--
     public void setTicketDate(int year, int month, int day)
     {
@@ -119,35 +155,44 @@ public class WorkTicket
         }
     }
 
+    /**
+     * Accessor function to return the issue description
+     * @return {String}
+     */
     //Get Issue Description
     public String getIssueDescription()
     {
         return issueDescription;
     }
 
+    /**
+     * Mutator function to set the issue description
+     * @param issueDescription
+     */
     //Set Issue Description
     public void setIssueDescription(String issueDescription)
     {
-        try
+        if (issueDescription.length() > 0)
         {
-            //If Issue Description length is less/equal to 1, throw an exception
-            if (issueDescription.length() <= 1)
-            {
-                throw new IllegalArgumentException();
-            }
-            //Issue Description is valid
-            else
-            {
-                this.issueDescription = issueDescription;
-            }
+            this.issueDescription = issueDescription;
         }
-        catch (IllegalArgumentException ex)
+        else
         {
-            System.out.print("\nThe issue description entered is invalid.");
+            System.out.println("The issue description must be at least one character long");
         }
 
     }
 
+    /**
+     * Mutator function to set the work ticket attributes
+     * @param ticketNumber
+     * @param clientId
+     * @param year
+     * @param month
+     * @param day
+     * @param issueDescription
+     * @return {boolean}
+     */
     boolean setWorkTicket(int ticketNumber, String clientId, int year, int month, int day, String issueDescription)
     {
         boolean validInput = true;
@@ -166,6 +211,10 @@ public class WorkTicket
     }
 
     // Functions
+    /**
+     * This function overrides the toString method and returns the attributes of the WorkTicket object
+     * @return {String}
+     */
     @Override
     public String toString() {
         return "WorkTicket #: " + ticketNumber + "\n" +
@@ -174,3 +223,4 @@ public class WorkTicket
                 "Description: " + issueDescription + "\n";
     }
 }
+

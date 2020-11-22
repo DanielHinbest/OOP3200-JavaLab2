@@ -6,11 +6,12 @@
 package ca.durhamcollege;
 import java.util.Scanner;
 
-//driver class
+// Driver class
 public class Main {
 
     public static void main(String[] args)
     {
+        // Variable declarations for user input
         int ticketNumber = 0;
         String clientID = "";
         int year = 0;
@@ -18,21 +19,21 @@ public class Main {
         int day = 0;
         String issueDescription = "";
 
-        WorkTicket ticket;
+        // Scanner for user input
+        Scanner keyboard = new Scanner(System.in);
 
-        //Display Default Constructor
-        ticket = new WorkTicket();
+        WorkTicket ticket = new WorkTicket();
         System.out.println("\nDefault Constructor\n-------------------\n" + ticket.toString());
 
-        //Display Parameterized Constructor
+        // Display Parameterized Constructor
         ticket = new WorkTicket(1479, "Seasonal", 2014, 9, 2, "I have an issue. Plz help!");
         System.out.println("\nParameterized Constructor\n-------------------------\n" + ticket.toString());
 
-        //Display an Error Parameterized Constructor
+        // Display an Error Parameterized Constructor
         ticket = new WorkTicket(-1, "Seasonal", 2100, 9, 2, "I have an issue. Plz help!");
         System.out.println("\nParameterized Constructor (with some errors)\n--------------------------------------------\n" + ticket.toString());
 
-        //Display Using Setters/Getters
+        // Display Using Setters/Getters
         System.out.println("\nSetters/Getters Ex.\n-------------------");
         ticket.setTicketNumber(12345);
         ticket.setClientID("OOP3200");
@@ -44,28 +45,24 @@ public class Main {
         System.out.println("Date:         " + ticket.getTicketDate());
         System.out.println("Description:  " + ticket.getIssueDescription() + "\n");
 
-        //Display an Error Using Setters/Getters
+        // Display an Error Using Setters/Getters
         ticket = new WorkTicket();
         System.out.println("\nSetters/Getters Error!\n-----------------------");
         ticket.setTicketNumber(100);
         ticket.setClientID("");
         ticket.setTicketDate(2000, 1, 1);
         ticket.setIssueDescription("");
-        //Output
+        // Output
         System.out.println("\nWorkTicket #: " + ticket.getTicketNumber());
         System.out.println("ClientID:     " + ticket.getClientID());
         System.out.println("Date:         " + ticket.getTicketDate());
         System.out.println("Description:  " + ticket.getIssueDescription() + "\n");
 
-        Scanner keyboard = new Scanner(System.in);
-
-
-        //Default constructor - stores input in variables then passes it into the setWorkTicket function to set the object
-        //WorkTicket ticket = new WorkTicket();
+        // Default constructor - stores input in variables then passes it into the setWorkTicket function to set the object
         System.out.print("Enter the ticket number: ");
         ticketNumber = keyboard.nextInt();
         System.out.print("Enter the client ID: ");
-        clientID = keyboard.nextLine();
+        clientID = keyboard.next();
         System.out.println("Enter the ticket date:");
         System.out.print("\tDay: ");
         day = keyboard.nextInt();
@@ -73,9 +70,10 @@ public class Main {
         month = keyboard.nextInt();
         System.out.print("\tYear: ");
         year = keyboard.nextInt();
+        keyboard.nextLine();
         System.out.print("Enter the issue description: ");
         issueDescription = keyboard.nextLine();
         ticket.setWorkTicket(ticketNumber, clientID, year, month, day, issueDescription);
-        ticket.toString();
+        System.out.println(ticket.toString());
     }
 }
