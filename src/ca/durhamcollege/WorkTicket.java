@@ -30,12 +30,12 @@ public class WorkTicket
 
     /**
      * The parameterized constructor for the WorkTicket
-     * @param ticketNumber
-     * @param clientID
-     * @param year
-     * @param month
-     * @param day
-     * @param issueDescription
+     * @param ticketNumber - the ticket number
+     * @param clientID - the client ID
+     * @param year - the year for the ticket's date
+     * @param month - the month for the ticket's date
+     * @param day - the day for the ticket's date
+     * @param issueDescription - the issue description
      */
     //Parameterized
     public WorkTicket(int ticketNumber, String clientID, int year, int month, int day, String issueDescription)
@@ -56,7 +56,7 @@ public class WorkTicket
 
     /**
      * Mutator function to set the ticket number
-     * @param ticketNumber
+     * @param ticketNumber - parameter to set the ticket number
      */
     //Set Ticket Number
     public void setTicketNumber(int ticketNumber)
@@ -96,7 +96,7 @@ public class WorkTicket
 
     /**
      * Mutator function to set the client ID
-     * @param clientID
+     * @param clientID - parameter to set the client ID
      */
     //Set Client ID
     public void setClientID(String clientID)
@@ -123,9 +123,9 @@ public class WorkTicket
 
     /**
      * Mutator function to set the ticket date
-     * @param year
-     * @param month
-     * @param day
+     * @param year - parameter to set the ticket's year for the date
+     * @param month - parameter to set the ticket's month for the date
+     * @param day - parameter to set the ticket's day for the date
      */
     //Set Ticket Date --Validations go in here--
     public void setTicketDate(int year, int month, int day)
@@ -167,7 +167,7 @@ public class WorkTicket
 
     /**
      * Mutator function to set the issue description
-     * @param issueDescription
+     * @param issueDescription - parameter to set the ticket number
      */
     //Set Issue Description
     public void setIssueDescription(String issueDescription)
@@ -185,12 +185,12 @@ public class WorkTicket
 
     /**
      * Mutator function to set the work ticket attributes
-     * @param ticketNumber
-     * @param clientId
-     * @param year
-     * @param month
-     * @param day
-     * @param issueDescription
+     * @param ticketNumber - parameter for the ticket date
+     * @param clientId - parameter for the client ID
+     * @param year - parameter for the ticket year
+     * @param month - parameter for the ticket month
+     * @param day - parameter for the ticket day
+     * @param issueDescription - parameter for the issue description
      * @return {boolean}
      */
     boolean setWorkTicket(int ticketNumber, String clientId, int year, int month, int day, String issueDescription)
