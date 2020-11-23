@@ -58,7 +58,7 @@ public class Main {
         System.out.println("Date:         " + ticket.getTicketDate());
         System.out.println("Description:  " + ticket.getIssueDescription() + "\n");
 
-        // Default constructor - stores input in variables then passes it into the setWorkTicket function to set the object
+        // Parameterized constructor - stores input in variables then passes it into the setWorkTicket function to set the object
         System.out.print("Enter the ticket number: ");
         ticketNumber = keyboard.nextInt();
         System.out.print("Enter the client ID: ");

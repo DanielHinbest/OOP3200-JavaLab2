@@ -130,6 +130,7 @@ public class WorkTicket
     //Set Ticket Date --Validations go in here--
     public void setTicketDate(int year, int month, int day)
     {
+        // Date constants
         final int MIN_YEAR = 2000;
         final int MAX_YEAR = 2099;
         final int MIN_MONTH = 1;
@@ -137,6 +138,7 @@ public class WorkTicket
         final int MIN_DAY = 1;
         final int MAX_DAY = 31;
 
+        // Validation for date
         try
         {
             if (year < MIN_YEAR || year > MAX_YEAR || month < MIN_MONTH || month > MAX_MONTH || day < MIN_DAY || day > MAX_DAY)
